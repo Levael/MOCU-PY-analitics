@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0c3e9cae-f69b-4a9d-a0fe-743987170000</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>MOCU_PY_analitics.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MOCU_PY_analitics.py" />
+    <Compile Include="DataParsing.py" />
+    <Compile Include="main.py" />
+    <Compile Include="DataAnalitics.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="input_raw_data.txt" />
+    <Content Include="data_for_debug.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
