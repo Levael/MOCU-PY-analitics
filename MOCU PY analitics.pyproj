@@ -9,8 +9,8 @@
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>MOCU PY analitics</Name>
-    <RootNamespace>MOCU PY analitics</RootNamespace>
+    <Name>MOCU PY analytics</Name>
+    <RootNamespace>MOCU PY analytics</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,7 +23,7 @@
   <ItemGroup>
     <Compile Include="DataParsing.py" />
     <Compile Include="main.py" />
-    <Compile Include="DataAnalitics.py" />
+    <Compile Include="DataAnalytics.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="input_raw_data.txt" />

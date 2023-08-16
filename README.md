@@ -1,1 +1,1 @@
-# MOCU PY analitics
+# MOCU PY analytics
