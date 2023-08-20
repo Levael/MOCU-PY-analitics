@@ -1,6 +1,6 @@
-from code.DataParsing import DataParsing as DataParsing
-from code.DataAnalytics import DataAnalytics as Analytics
-from code.DataVisualisation import DataVisualisation as Visualisation
+from code_logic.DataParsing import DataParsing as DataParsing
+from code_logic.DataAnalytics import DataAnalytics as Analytics
+from code_logic.DataVisualisation import DataVisualisation as Visualisation
 
 MocuDataParsing = DataParsing('input_raw_data.txt', 'debug')
 MocuAnalytics = Analytics(MocuDataParsing, 'debug')

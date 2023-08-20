@@ -1,5 +1,9 @@
 import matplotlib.pyplot as chart
 
+#chart.style.use('Solarize_Light2')
+#chart.rcParams["figure.facecolor"] = "dimgray"
+##chart.rcParams["axes.facecolor"] = "whitesmoke"
+
 
 class DataVisualisation:
     def __init__(self, analysis_object, mode='release'):
@@ -30,6 +34,7 @@ class DataVisualisation:
         y_axis = self._moog_trials_total_times
         chart.scatter(x_axis, y_axis, s=1)
 
+        chart.subplots_adjust(left=0.035, right=0.98, top=0.96, bottom=0.03)
         chart.show()
 
 
@@ -74,4 +79,5 @@ class DataVisualisation:
                 '',
                 'delay between frames (ms)')
 
+        chart.tight_layout()
         chart.show()

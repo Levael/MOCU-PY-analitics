@@ -21,13 +21,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DataParsing.py" />
+    <Compile Include="code_logic\DataAnalytics.py" />
+    <Compile Include="code_logic\DataParsing.py" />
+    <Compile Include="code_logic\DataVisualisation.py" />
+    <Compile Include="code_logic\__init__.py" />
     <Compile Include="main.py" />
-    <Compile Include="DataAnalytics.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="code_logic\__pycache__\__init__.cpython-39.pyc" />
     <Content Include="input_raw_data.txt" />
-    <Content Include="data_for_debug.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="code_logic\" />
+    <Folder Include="code_logic\__pycache__\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

@@ -14,9 +14,15 @@ class DataAnalytics:
         }
         self._oculus_trials = []
         self._moog_trials = []
+        
+        self._oculus_pairs = []
+        self._moog_pairs = []
 
         self._divergent_oculus_trials = []
         self._divergent_moog_trials = []
+        
+        self._filtered_oculus_trials = []
+        self._filtered_moog_trials = []
 
         self._time_oculus_trials_delays = self.GetOculusTrials()
         self._time_moog_trials_delays = self.GetMoogHalfTrials()
@@ -45,14 +51,14 @@ class DataAnalytics:
             if not (self._data[i]['custom_value'] in self._config['oculus_markers']):
                 continue
 
-            # boolshit, it's not trials, its points. and nobody uses this global var -_-
-            self._oculus_trials.append(self._data[i])
+            
+            self._oculus_pairs.append(self._data[i])
 
-            if len(self._oculus_trials) < 2:
+            if len(self._oculus_pairs) < 2:
                 continue
 
             try:
-                delay = (self._oculus_trials[-1]['time_stamp'] - self._oculus_trials[-2]['time_stamp']) / self._cpu_freq
+                delay = (self._oculus_pairs[-1]['time_stamp'] - self._oculus_pairs[-2]['time_stamp']) / self._cpu_freq
             except:
                 # print(self._data[i])
                 delay = -1
@@ -61,6 +67,7 @@ class DataAnalytics:
             if delay > self._config['oculus_divergent_value']:
                 trials_index += 1
                 trials.append([])
+                # todo here add moog and oculus separate trials
                 # last point, not include
                 # trials[trials_index].append(delay)
                 continue
@@ -79,13 +86,13 @@ class DataAnalytics:
             if not (self._data[i]['custom_value'] in self._config['moog_markers']):
                 continue
 
-            self._moog_trials.append(self._data[i])
+            self._moog_pairs.append(self._data[i])
 
-            if len(self._moog_trials) < 2:
+            if len(self._moog_pairs) < 2:
                 continue
 
             try:
-                delay = (self._moog_trials[-1]['time_stamp'] - self._moog_trials[-2]['time_stamp']) / self._cpu_freq
+                delay = (self._moog_pairs[-1]['time_stamp'] - self._moog_pairs[-2]['time_stamp']) / self._cpu_freq
             except:
                 print(self._data[i])
                 delay = -1
