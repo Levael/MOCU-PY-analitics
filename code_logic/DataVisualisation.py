@@ -9,7 +9,7 @@ class DataVisualisation:
     def __init__(self, analysis_object, mode='release'):
         self._oculus_trials_total_times = analysis_object.oculus_trials_total_times
         self._moog_trials_total_times = analysis_object.moog_trials_total_times
-
+        self._raw_data = analysis_object.parsed_raw_data
 
 
 
@@ -36,9 +36,17 @@ class DataVisualisation:
 
         chart.subplots_adjust(left=0.035, right=0.98, top=0.96, bottom=0.03)
         chart.show()
+        
+    #temp here
+    def DrawRawData(self):
+        print(len(self._raw_data))
+        chart.figure('Time Manager Test')
+        x_axis = range(1, len(self._raw_data)+1)
+        y_axis = self._raw_data
+        chart.scatter(x_axis, y_axis, s=1)
 
-
-
+        chart.subplots_adjust(left=0.035, right=0.98, top=0.96, bottom=0.03)
+        chart.show()
 
 
 

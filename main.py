@@ -6,7 +6,8 @@ MocuDataParsing = DataParsing('input_raw_data.txt', 'debug')
 MocuAnalytics = Analytics(MocuDataParsing, 'debug')
 MocuVisualisation = Visualisation(MocuAnalytics, 'debug')
 
-MocuVisualisation.DrawMoogAndOculusTotalTrialsTimes()
+#MocuVisualisation.DrawMoogAndOculusTotalTrialsTimes()
+MocuVisualisation.DrawRawData()
 
 # MocuDataParsing = DataParsing('input_raw_data.txt', 'release')
 # MocuAnalytics   = Analytics(MocuDataParsing, 'release')

@@ -29,6 +29,8 @@ class DataAnalytics:
 
         self.oculus_trials_total_times = self.GetOculusTotalTimeTrials()
         self.moog_trials_total_times = self.GetMoogTotalTimeTrials()
+        
+        self.parsed_raw_data = self.GetParsedRawData()
 
         if self._mode == 'debug':
             print('DataAnalytics:	', 'Number of oculus trials', len(self._time_oculus_trials_delays), ' / ',
@@ -40,6 +42,16 @@ class DataAnalytics:
             # print('DataAnalytics:	', 'Moog trials total times', self._moog_trials_total_times)
             # print('DataAnalytics:	', 'Oculus trials', self.GetOculusTrials())
             # print('DataAnalytics:	', 'Moog halftrials', self.GetMoogHalfTrials())
+
+
+    def GetParsedRawData(self):
+        listWithTimeStamps = []
+        
+        for timeStamp in self._data:
+            listWithTimeStamps.append(timeStamp['time_stamp'])    # yeah yeah, I acsidentaly switched them, never mind
+
+        return listWithTimeStamps
+
 
     def GetOculusTrials(self):
         trials = [[]]
