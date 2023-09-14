@@ -45,12 +45,13 @@ class DataAnalytics:
 
 
     def GetParsedRawData(self):
-        listWithTimeStamps = []
+        obj = {"ticks": [], "delays": [],}
         
         for timeStamp in self._data:
-            listWithTimeStamps.append(timeStamp['time_stamp'])    # yeah yeah, I acsidentaly switched them, never mind
+            obj["ticks"].append(timeStamp['time_stamp'])
+            obj["delays"].append(timeStamp['custom_value'])
 
-        return listWithTimeStamps
+        return obj
 
 
     def GetOculusTrials(self):
@@ -121,6 +122,7 @@ class DataAnalytics:
             half_trials[half_trials_index].append(delay)
 
         return half_trials
+    
 
     def GetMoogTotalTimeTrials(self):
         total_times = []
@@ -129,6 +131,7 @@ class DataAnalytics:
             total_times.append(sum(moog_trial_delays))
 
         return total_times
+    
 
     def GetOculusTotalTimeTrials(self):
         total_times = []

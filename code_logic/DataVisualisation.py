@@ -37,18 +37,18 @@ class DataVisualisation:
         chart.subplots_adjust(left=0.035, right=0.98, top=0.96, bottom=0.03)
         chart.show()
         
-    #temp here
+
     def DrawRawData(self):
-        print(len(self._raw_data))
-        chart.figure('Time Manager Test')
-        x_axis = range(1, len(self._raw_data)+1)
-        y_axis = self._raw_data
-        chart.scatter(x_axis, y_axis, s=1)
+        chart.figure('Time Manager Test. Number of points: ' + str(len(self._raw_data["ticks"])))
+        
+        x_axis = self._raw_data["ticks"]
+        y_axis = self._raw_data["delays"]
+        
+        colors = ['red' if value <= 1 else 'blue' for value in y_axis]
+        chart.scatter(x_axis, y_axis, s=1, c=colors)
 
         chart.subplots_adjust(left=0.035, right=0.98, top=0.96, bottom=0.03)
         chart.show()
-
-
 
 
 
