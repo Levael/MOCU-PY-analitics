@@ -45,11 +45,16 @@ class DataAnalytics:
 
 
     def GetParsedRawData(self):
-        obj = {"ticks": [], "delays": [],}
+        obj = {"time_stamps": [], "custom_values": []}
         
         for timeStamp in self._data:
-            obj["ticks"].append(timeStamp['time_stamp'])
-            obj["delays"].append(timeStamp['custom_value'])
+            obj["time_stamps"].append(timeStamp['time_stamp'])
+            obj["custom_values"].append(timeStamp['custom_value'])
+                
+        #sorting by "time_stamps"
+        zipped = list(zip(obj["time_stamps"], obj["custom_values"]))
+        zipped.sort()
+        obj["time_stamps"], obj["custom_values"] = zip(*zipped)
 
         return obj
 

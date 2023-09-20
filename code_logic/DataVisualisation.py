@@ -39,17 +39,38 @@ class DataVisualisation:
         
 
     def DrawRawData(self):
-        chart.figure('Time Manager Test. Number of points: ' + str(len(self._raw_data["ticks"])))
+        chart.figure('Time Manager Test. Number of points: ' + str(len(self._raw_data["time_stamps"])))
         
-        x_axis = self._raw_data["ticks"]
-        y_axis = self._raw_data["delays"]
+        x_axis = self._raw_data["time_stamps"]
+        y_axis = self._raw_data["custom_values"]
         
-        colors = ['red' if value <= 1 else 'blue' for value in y_axis]
+        #print(f"{min(x_axis)} - {max(x_axis)}; {min(y_axis)} - {max(y_axis)}")
+        #print(x_axis[-5:])
+
+        #print(x_axis)
+        #print(y_axis)
+
+        #chart.xlim([min(x_axis), max(x_axis)])
+        #chart.ylim([min(y_axis), max(y_axis)])
+
+        colors = []
+        color_border = 3    # max Y value = red
+
+        for y_value in y_axis:
+            if y_value > color_border:          color = (1, 0, 0)   # red
+            elif y_value > 0 and y_value < 0.5: color = (0, 0.6, 0)   # green
+            
+            else:
+                red_channel = y_value / color_border
+                blue_channel = 1 - red_channel
+                color = (red_channel, 0, blue_channel)  # red / blue gradient
+            colors.append(color)
+        
+        #colors = ['red' if value < 0.5 else 'orange' if value >= 0.5 and value < 0.93 else "green" if value >= 0.93 and value <= 1.07 else "magenta" if value > 1.07 else "black" for value in y_axis]
         chart.scatter(x_axis, y_axis, s=1, c=colors)
 
         chart.subplots_adjust(left=0.035, right=0.98, top=0.96, bottom=0.03)
         chart.show()
-
 
 
     def MakePointedChart(self, data, number_of_charts = 1, index_in_figure = 1, chart_name = "", y_axis_name = ""):
@@ -64,6 +85,7 @@ class DataVisualisation:
         print(data)
 
         chart.scatter(x_axis, y_axis, s=1)
+        
 
     def DrawChartAsAxes (self, data):
         chart.figure('')

@@ -21,7 +21,11 @@ class DataParsing:
 			# [0]   - only one long line
 			# ';'   - custom separator of pairs
 			# [:-1] - last line is empty in txt files
-			return file.readlines()[0].split(';')[:-1]
+			try:
+				return file.readlines()[0].split(';')[:-1]
+			except:
+				print("File seems to be empty")
+				return
 
 
 	def ParseData(self, data):

@@ -6,7 +6,7 @@ from code_logic.DataVisualisation import DataVisualisation as Visualisation
 #MocuAnalytics = Analytics(MocuDataParsing, 'debug')
 #MocuVisualisation = Visualisation(MocuAnalytics, 'debug')
 
-MocuDataParsing = DataParsing("C:\\Users\\Levael\\GitHub\\C#-tests\\C#-tests\\Tests\\temp_debug.txt", 'debug')
+MocuDataParsing = DataParsing("C:\\Users\\Levael\\GitHub\\C#-tests\\C#-tests\\Tests\\Debug_log.txt", 'debug')   # "C:\\Users\\Levael\\GitHub\\MOCU-PY-analytics\\input_raw_data.txt"
 MocuAnalytics = Analytics(MocuDataParsing, 'debug')
 MocuVisualisation = Visualisation(MocuAnalytics, 'debug')
 
